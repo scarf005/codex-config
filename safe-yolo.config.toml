@@ -1,0 +1,21 @@
+# Low-friction automation with a filesystem boundary and automatic approval review.
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+sandbox_mode = "workspace-write"
+allow_login_shell = false
+web_search = "disabled"
+
+[sandbox_workspace_write]
+network_access = false
+writable_roots = []
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+
+[apps._default]
+default_tools_approval_mode = "prompt"
+destructive_enabled = false
+open_world_enabled = false
