@@ -1,0 +1,19 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+
+[agents]
+default_subagent_model = "gpt-5.6-luna"
+default_subagent_reasoning_effort = "high"
+max_concurrent_threads_per_session = 4
+
+[projects."/home/scarf/repo/head-full-of-flowers"]
+trust_level = "trusted"
+
+[projects."/home/scarf/repo/cata/Cataclysm-BN"]
+trust_level = "trusted"
+
+[projects."/home/scarf/.config/codex"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+gpt-6-astra = 3

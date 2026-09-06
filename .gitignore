@@ -1,0 +1,16 @@
+# Track maintained configuration only; private state and downloaded caches stay local.
+/*
+!/.gitignore
+!/AGENTS.md
+!/config.toml
+!/agents/
+!/skills/
+
+# Bundled skills are generated, except the customized OpenAI Docs skill.
+/skills/.system/*
+!/skills/.system/openai-docs/
+
+# Generated files inside maintained directories.
+**/__pycache__/
+**/*.pyc
+**/node_modules/
