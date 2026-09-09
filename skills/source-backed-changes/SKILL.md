@@ -1,11 +1,18 @@
 ---
 name: source-backed-changes
-description: Source-backed data, content, media, live-site, controls, compatibility, and artifact changes. Use when modifying sourced records/assets, mirroring media, correcting live content, or asserting exact runtime/source identity.
+description: Create or extend visual assets using existing artwork as references; modify sourced data/media, mirror media, correct live content, or verify controls, compatibility, and artifact identity.
 ---
 
 # Source-backed changes
 
 - Inspect the exact user-provided page, record, asset, screenshot, recording, log, or artifact first
+- Before creating or extending visual assets, open representative original assets and inspect their actual rendered
+  context. Record the relevant dimensions, pixel scale, palette, outlines, shading, perspective, and relative size;
+  use these as acceptance criteria unless the user requests a new visual direction.
+- Reuse suitable existing assets. When generation is needed, supply the inspected originals as image references,
+  together with the concrete constraints; a genre label such as pixel art is not a substitute for reference images.
+- Validate a small representative sample beside the originals at the intended display scale before producing a batch.
+  Correct mismatched style or scale before expanding it; reducing display size alone does not establish a match.
 - For UI complaints, identify the exact visible view, component, toolbar, and state before editing
 - Preserve the exact visible asset role, crop, and source intent; do not substitute thumbnails, portraits, banners, or
   full-body images for each other

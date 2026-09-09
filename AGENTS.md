@@ -17,7 +17,8 @@
 ## Task contract
 
 - Before substantive modification, identify the requested goal, externally visible result and form, explicit
-  constraints, scope, and unresolved user decisions
+  constraints, scope, and unresolved user decisions; derive acceptance criteria from the request and relevant existing
+  artifacts, and choose evidence for each criterion before breaking the work into implementation steps
 - Ask one focused question only when evidence cannot resolve a decision that materially changes observable behavior,
   requested syntax or API, scope, explicitly constrained architecture, compatibility, output shape, or the target to
   modify
@@ -59,8 +60,9 @@
   base revision
 - For CI, release, platform, build, visual, data, media, and live-site changes, load the matching skill and run the
   corresponding real workflow or report the exact unverified path
-- Review the final diff for contract compliance, correctness, simpler structure, and unnecessary machinery before
-  accepting it
+- Review the final diff and delivered result against the original acceptance criteria, including correctness, simpler
+  structure, and unnecessary machinery. Completed steps, asset counts, and passing tests establish only what they
+  directly verify; fix a failed criterion before completion or report it as unresolved
 
 ## Git and completion
 
