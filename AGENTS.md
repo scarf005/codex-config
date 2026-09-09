@@ -50,8 +50,9 @@
 
 ## Validation
 
-- Add meaningful behavior tests when code changes; cover relevant boundaries, negative paths, state combinations, and
-  adjacent regressions
+- Scale validation to impact; do not add tests for reversible, low-impact changes that only mirror the implementation
+- For nontrivial code changes, add meaningful behavior tests covering relevant boundaries, negative paths, state
+  combinations, and adjacent regressions
 - Validate the exact changed behavior and touched files using the target source/revision; observable results matter more
   than successful command exits
 - Fix failures caused by touched files before completion; do not call failures pre-existing without proving them on the

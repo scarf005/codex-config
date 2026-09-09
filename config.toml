@@ -1,5 +1,10 @@
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 model_reasoning_effort = "medium"
+model_context_window = 512000
+model_auto_compact_token_limit = 430000
+
+[features.context_management]
+experimental_mode = true
 
 [agents]
 default_subagent_model = "gpt-5.6-luna"
