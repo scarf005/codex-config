@@ -5,11 +5,10 @@ description: Project-facing Markdown and prose for documentation, issues, PRs, c
 
 # Project prose
 
-- Use the repository's primary language and existing style
-- Keep prose terse and actionable; link source configs/tools instead of copying them and remove obvious metadata or
-  statistics unless requested or justified by measured performance
-- Include direct related URLs when relevant; omit an empty related-links section rather than announcing that none were
-  found
+- Use the repository's primary language and existing style; keep prose terse and actionable
+- Link relevant source configs, tools, and related URLs instead of copying them; omit an empty related-links section
+  rather than announcing that none were found
+- Remove obvious metadata or statistics unless requested or justified by measured performance
 - Lead bug reports with the concrete symptom and related link, then reproduction, environment, and logs/backtrace; omit
   template filler, speculative diagnosis, and polished framing
 - Do not include research/process provenance unless requested; use references as inputs rather than self-reporting

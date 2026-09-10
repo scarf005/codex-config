@@ -14,8 +14,8 @@ description: CI/CD workflow rules. Use when creating or modifying GitHub Actions
   intended implementation behavior
 - Run the matching local workflow when feasible and state exact unverified event/platform/release paths
 - When using `denoland/setup-deno@v2`, use `with: { cache: true }`.
-- If a project needs a scheduled GitHub Actions cron job, add `gautamkrishnar/keepalive-workflow@v2` so inactive
-  repositories keep scheduled workflows enabled; `scarf005/sangiyo` is an example case.
+- If a scheduled GitHub Actions cron job would otherwise be disabled by repository inactivity, add
+  `gautamkrishnar/keepalive-workflow@v2`; do not add it to schedules that do not need that keepalive behavior.
 - Prefer keepalive API mode in a separate job with `permissions: { actions: write }`, `actions/checkout@v4`, and no
   dummy commits.
 - Use `workflow_files` when a dedicated keepalive workflow maintains other scheduled workflow files.

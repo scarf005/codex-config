@@ -9,7 +9,9 @@
 - For Korean negative yes/no questions, use `네` to confirm the negative premise and `아니요` to reject it
 - Answer questions and objections before acting; analysis, investigation, explanation, and review are read-only unless
   the user authorizes mutation
-- If corrected, address the correction now and load `agent-policy-updates` before considering policy changes
+- If corrected, address the correction now before considering policy changes
+- Add or edit policy only for a concrete procedural gap likely to recur; do not encode ordinary judgment or one-off mistakes
+- Prefer editing an existing applicable rule over adding a duplicate, and keep policy general and scoped
 - Use exact user-provided sources, artifacts, targets, and visible components before searching for or substituting
   alternatives; inspect available diagnostics before asking for local facts
 - Redact credentials, tokens, secrets, headers, URLs with action tokens, and sensitive payloads from output

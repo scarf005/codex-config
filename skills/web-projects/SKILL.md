@@ -1,6 +1,6 @@
 ---
 name: web-projects
-description: Web project implementation and validation rules. Use when creating or modifying web UI, frontend apps, Preact, Vite, Deno tests, browser-visible changes, or web references.
+description: Frontend implementation and validation rules. Use when creating or modifying web UI, frontend apps, Preact, Vite apps, or browser-visible behavior.
 ---
 
 # Web Projects
@@ -18,10 +18,10 @@ description: Web project implementation and validation rules. Use when creating 
 - Preact: prefer Signals/deepsignal; avoid hooks unless architecture/library boundaries require them.
 - Preact event handlers: use `event.currentTarget.value` directly; do not cast typed targets like
   `(event.currentTarget as HTMLInputElement).value`.
-- TypeScript/JavaScript in web projects: do not introduce ordinary `function` declarations or expressions; use `const`
-  arrow functions for helpers, components, callbacks, and exported utilities. Use `function` only when the syntax/API
-  requires it (e.g., overload declarations, generators, methods) and state that exception before coding.
-- Use Vite `base: "./"`.
+- TypeScript/JavaScript in web projects: prefer `const` arrow functions for helpers, components, callbacks, and exported
+  utilities. Use `function` when the syntax or API requires it (e.g., overload declarations, generators, methods).
+- Use Vite `base: "./"` only when the hosting path requires relative assets; otherwise follow the existing project
+  convention.
 - Test web projects and browser-visible changes with `playwright-cli`; use the repo's actual dev server/routes for
   screenshots when available, create a temporary real page fixture when needed, and capture the full page unless the
   user explicitly asks for a cropped element.
@@ -37,4 +37,5 @@ description: Web project implementation and validation rules. Use when creating 
   seeds both as an overview and at normal viewing scale. Collision-free placement alone does not establish coherence.
 - Do not claim a live URL fixed until the commit is pushed and deployment is verified; label local validation explicitly
 - For web references, include direct links and check `/llms.txt` when relevant.
-- Before changing Deno tests, read Deno testing, snapshot, and fast-check Deno docs.
+- When changing Deno tests, read only the relevant official documentation for the testing, snapshot, or fast-check
+  feature involved.

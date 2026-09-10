@@ -5,9 +5,13 @@ description: Local machine and personal environment rules. Use when modifying lo
 
 # Local Environment
 
+Apply the general rules below when the task changes local configuration, XDG paths,
+temporary files, downloads, or personal machine paths. The CBN and DDA entries apply
+only to those projects; the game-exemption rules apply only to CBN main auto-builds.
+
 - `/tmp/pi` may be modified.
 - Use SI units and RFC 3339 timestamps.
-- For XDG environment variables, update `~/.fish/config/conf.d/xdg.fish`.
+- For XDG environment variables, update `~/.config/fish/conf.d/xdg.fish`.
 - `phone` is Termux over Tailscale port `8022`; copy downloads with `scp <file> phone:~/storage/downloads/`.
 - `/home/scarf/repo/cata/Cataclysm-BN` is the Cataclysm-BN main worktree; use it for upstream main automation unless the user explicitly requests another clone/worktree.
 - `/home/scarf/repo/cata/Cataclysm-DDA` is the local blobless Cataclysm-DDA reference clone; reuse it for DDA code/history research and update it with blobless fetches instead of creating duplicate `/tmp` clones.

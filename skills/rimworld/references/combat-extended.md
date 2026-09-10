@@ -47,7 +47,12 @@
   - In F#, place `ModSettings` subclass **before** `Mod` subclass in the same file (F# type ordering). Use `let mutable` + property wrappers instead of `[<DefaultValue>] val mutable` to avoid CLR init issues.
   - Do not call `GetSettings<T>()` from the constructor body; defer to `LongEventHandler.ExecuteWhenFinished`.
 
-## CE stats calibration
+## CE stats calibration (project-specific working notes)
+
+The numeric calibration notes in this section are repository-specific working values.
+Their source and provenance are not recorded here, so treat them as unverified examples
+until the target project supplies data, source references, or in-game measurements.
+Do not generalize them to other CE versions, weapons, or mods without recalibration.
 
 - CE explosion `damageAmountBase` and `explosionRadius` are game-design values, not physical quantities. Do not treat them as direct TNT/kg mappings without calibration.
 - For HE artillery/mortar rounds, a log-linear power-law model `tntKg = k · damage^a · radius^b` fits real-world data with R² ≈ 0.96. Airburst variants (same filler, wider radius) help disentangle damage vs radius contributions.

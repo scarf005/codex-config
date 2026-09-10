@@ -41,8 +41,8 @@
 
 ## Save file inspection
 
-- `.rws` save files are XML. Always use `rg -F` (fixed-string) for literal tag/def name search — regex patterns silently fail on `<tag>` angle brackets.
-- Prefer `rg -F "pattern" save.rws` over `rg "pattern"` for any XML file.
+- `.rws` save files are XML. Use `rg -F` (fixed-string) when searching for a literal tag or def name; it avoids regex metacharacter handling. Angle brackets do not make `rg` regex searches fail, but fixed-string search is clearer for literal XML.
+- Prefer `rg -F "pattern" save.rws` when the search text is literal; use a regular expression only when the task needs pattern matching.
 
 ## First-party mod justfile
 
@@ -58,4 +58,4 @@
   - Config: `/home/scarf/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config/ModsConfig.xml`
   - Log: `/home/scarf/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Player.log`
 - Do not edit `ModsConfig.xml` while RimWorld is running because the game can overwrite it on exit.
-- Validate a new justfile with `just --list`, `just fmt`, and `just build`; run `just fmt` a second time to verify idempotence. Run `just install` or `just install-enable` only when the task explicitly requests the corresponding local state change.
+- Validate a new justfile with `just --list`, `just fmt`, and `just build`; run `just fmt` a second time to verify idempotence. Run `just install` or `just enable` only when the task explicitly requests the corresponding local state change.

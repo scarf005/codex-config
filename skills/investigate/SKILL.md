@@ -31,17 +31,16 @@ Use this skill for read-only diagnosis and solution exploration. It is a plannin
    - Inspect exact files, logs, screenshots, errors, or commands relevant to the reported issue.
 
 3. **Find related work when relevant**
-   - Perform this entire step only for a repository bug diagnosis or when the user asks for related issues/PRs. Search
+   - Perform this step only for a repository bug diagnosis or when the user asks for related issues/PRs. Search
      the local repo history, issues, PR references, docs, changelog, and tests for related behavior.
    - If the repository is on GitHub and network/auth is available, use `gh search issues` and `gh search prs` or
      equivalent targeted searches.
    - Search by the issue number/URL, exact title or symptom text, and the implicated symbols/files discovered during diagnosis.
    - Check whether an existing open or merged PR already fixes the reported issue before proposing new implementation work; inspect candidate PR file lists/diffs rather than relying on titles.
-   - For repository bugs, actively attempt to identify the likely introducing commit and PR before finalizing: inspect
-     blame/log/diffs around implicated code, search PRs by commit/title/files/symbols, and use focused bisect-style
-     checks when feasible. If a culprit is identified, label it explicitly as the likely/confirmed introducing
-     commit/PR with the evidence; do not bury it in a generic related-work list. If a culprit cannot be identified,
-     state the exact blocker and confidence level.
+   - For repository bugs, trace the likely introducing commit or PR when that history would affect the diagnosis or the
+     user asks for it: inspect blame/log/diffs around implicated code and search PRs by commit/title/files/symbols.
+     If a culprit is identified, label it explicitly as the likely/confirmed introducing commit/PR with the evidence;
+     if it cannot be identified, state the exact blocker and confidence level.
    - Do not infer relatedness from adjacent issue/PR numbers; numbers are not evidence. If an adjacent or nearby number looks relevant, inspect it only as an ordinary search result or explicit reference.
    - For open PRs, also check PRs touching the implicated files/symbols when text search may miss the relationship; inspect candidate file lists/diffs before deciding whether they fix the issue.
    - Track the exact related issue/PR queries or local searches performed.
@@ -54,8 +53,8 @@ Use this skill for read-only diagnosis and solution exploration. It is a plannin
    - For bugs, trace from symptom to likely root cause before proposing fixes.
    - Note blockers or missing evidence instead of guessing.
 
-5. **Present multiple fix paths**
-   - Provide at least two viable approaches when possible.
+5. **Present fix paths**
+   - Provide multiple viable approaches when the choice materially affects the recommendation.
    - For each approach, include:
      - What would change
      - Pros
@@ -66,9 +65,10 @@ Use this skill for read-only diagnosis and solution exploration. It is a plannin
 ## Final Response Shape
 
 - Lead with the direct finding or current best answer.
-- For repository bug investigations, include a separate `Likely introducing change` or `Confirmed introducing change`
-  item before `Related issues/PRs`; cite the commit/PR, title, URL when available, and the evidence. If unknown, say
-  so with the blocker/confidence.
+- When the related-work or history search above was performed for a repository bug investigation, include a separate
+  `Likely introducing change` or `Confirmed introducing change` item before `Related issues/PRs`; cite the commit/PR,
+  title, URL when available, and the evidence. If no introducing change was established, state the blocker and
+  confidence. Omit history-specific items when that search was not performed.
 - Include a concise `Related issues/PRs` item when related work was searched; include each found issue/PR's number,
   title, and direct URL, and include searched scope/queries for empty results.
 - Include fix options with pros and cons.

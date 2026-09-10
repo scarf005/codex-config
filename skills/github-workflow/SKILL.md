@@ -1,16 +1,20 @@
 ---
 name: github-workflow
-description: GitHub issue, pull request, branch, worktree, commit metadata, checks, review follow-up, and external contribution workflow. Use when creating or updating GitHub issues/PRs, preparing branches/worktrees, watching checks, or responding to reviews.
+description: GitHub issue, pull request, branch, worktree, commit metadata, checks, review follow-up, and external distribution workflow. Use for GitHub contribution work or external distribution artifacts.
 ---
 
 # GitHub workflow
 
 - Use `gh`; do not comment unless requested
+- For registry, package-index, or external distribution work, keep vendor content out of the main application tree
+  unless explicitly requested.
 - For external reports about bundled components, identify whether the fix belongs upstream or in the host repository
   before branching or opening a PR
-- Branch from `upstream/main` when available, otherwise `origin/main`; name branches
+- Branch from the repository's actual target branch, using the matching `upstream` remote when available and otherwise
+  `origin`; name branches
   `{type}/{issue-number}/{issue-slug}` or `{type}/{slug}`
-- For requested new worktrees, use `https://github.com/coderabbitai/git-worktree-runner`
+- For requested new worktrees, use the installed `git-gtr` through `git gtr`; run `git gtr version` before considering
+  installation or cloning another copy
 - Inspect the specific PR/commit file list and diff before claiming whether it changed a file
 - Read repository PR templates, title/changelog guidelines, and existing comparable PRs before drafting
 - Before editing an existing issue or PR, fetch its current title and body with `gh`; patch a saved copy minimally and
@@ -32,5 +36,7 @@ description: GitHub issue, pull request, branch, worktree, commit metadata, chec
 - For CI permission/auth failures, compare the same step on recent comparable PRs before calling it PR-specific
 - After follow-up implementation changes, replace stale cumulative PR bullets and update relevant
   compatibility/testing/checklist details
-- After opening a PR, do not push follow-up commits or force-push unless the user explicitly asks to update the remote
-  branch
+- Reuse authorization already granted for the current issue or PR; ask before a remote operation that expands its scope
+  or changes the requested target.
+- After opening a PR, push follow-up commits to the current PR branch when already authorized; require explicit
+  authorization for force-push or a different remote or branch
