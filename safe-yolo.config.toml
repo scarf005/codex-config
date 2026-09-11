@@ -7,7 +7,7 @@ web_search = "disabled"
 
 [sandbox_workspace_write]
 network_access = false
-writable_roots = []
+writable_roots = ["/home/scarf/.cache/ccache"]
 exclude_slash_tmp = true
 exclude_tmpdir_env_var = true
 
