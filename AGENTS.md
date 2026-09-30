@@ -87,7 +87,9 @@
   cloning another copy
 - Prefer `xh` for web requests, `rg --heading`/`fd`/`fzf` for search, `gh` for GitHub, and `playwright-cli` for browser
   validation
-- Use task-scoped commands; exit code 0 with no output means completion
+- Use task-scoped commands; exit code 0 with no output means completion. For long-running work, prefer native
+  completion waits or event subscriptions; use bounded backoff polling only when events are unavailable, and
+  report meaningful phase changes, completion, or errors without repeating unchanged progress.
 - Use syntax compatible with the active shell. The local interactive shell is fish, while Codex may run Bash; use
   `--body-file` for multiline GitHub text.
 - When the user explicitly requests subagents, delegate substantive planning or implementation before doing direct
