@@ -94,6 +94,20 @@
 - Use syntax compatible with the active shell. The local interactive shell is fish, while Codex may run Bash; use
   `--body-file` for multiline GitHub text.
 - When the user explicitly requests subagents, delegate substantive planning or implementation before doing direct
-  implementation work
+  implementation work; use `planner` for plans, `explorer` for evidence gathering, `reviewer` for review and `worker` for implementation
+- Select a configured role through `agent_type` when the actual spawn schema supports it; `task_name` is only a task label.
+  Do not override the role/default model or reasoning effort unless the task needs it. Verify the actual child role, model,
+  tools, sandbox and working directory from available session metadata; unsupported controls are blockers, not applied settings
+- Supply the delegated task, constraints, inspectable sources/diff and acceptance checks. Inherited history is reference
+  material, not the child's assignment; use fresh context for independent tasks and fork only when that history is needed
+- Lifecycle `Completed` is not task success. Require the final requested answer and evidence of the assigned work; an
+  acknowledgement, missing tool/source or missing final result is incomplete. Send a follow-up to the same child using
+  the current tool schema, inspect its result, and report a blocker if it still cannot execute. Do not silently approve it
+- Verify needed MCP/tools in the child before relying on them. If unavailable, acquire that evidence in the parent and
+  provide a readable artifact; do not claim a prompt supplied a missing tool. Direct parents must collect nested results
+  and relay the evidence to their own caller
+- If task delivery or role selection still fails, compare a small read-only acceptance probe under V1/V2 in separate new
+  sessions. Verify the effective spawn schema, not only feature flags: model metadata may select V2. Do not edit generated
+  model caches, permanently switch backends, or relax sandbox/permissions as an unverified workaround
 - Prefer functional style, TypeScript options objects for three or more arguments, C++ structs, single-line arrow
   functions when readable, and compact YAML maps/lists unless repository conventions differ
