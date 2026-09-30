@@ -79,8 +79,6 @@
 - Before amend or force-push, verify `HEAD` and inspect staged paths
 - State exact validation evidence and residual blockers; do not claim runtime, deployment, or live success beyond what
   was observed
-- After each task run `~/.local/bin/notify --id "$PWD" "{{Korean title}}" "{{Korean summary with the actual result}}"`;
-  add `--click "$URL"` for an important URL
 
 ## Local tools and conventions
 

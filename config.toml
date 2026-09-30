@@ -22,3 +22,16 @@ trust_level = "trusted"
 
 [tui.model_availability_nux]
 gpt-6-astra = 3
+
+[tui]
+alternate_screen = "always"
+
+[[hooks.Stop]]
+
+[[hooks.Stop.hooks]]
+type = "command"
+command = 'python3 "$HOME/.config/pi/bin/agent-notify.py" codex'
+timeout = 10
+
+[hooks.state."/home/scarf/.config/codex/config.toml:stop:0:0"]
+trusted_hash = "sha256:43882390039cbc0262ecc8730bbaca284683aa66bc108889aa48b9142192e048"
