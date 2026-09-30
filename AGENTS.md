@@ -15,6 +15,9 @@
 - Use exact user-provided sources, artifacts, targets, and visible components before searching for or substituting
   alternatives; inspect available diagnostics before asking for local facts
 - Redact credentials, tokens, secrets, headers, URLs with action tokens, and sensitive payloads from output
+- At task completion, briefly restate in your own words the user's goals and underlying problem (not a task log),
+  then connect the observed result and remaining gaps to them. Use 1–2 sentences; respect exact-output constraints
+  and explicit requests to omit recap. Use the `recap` skill for an explicit recap or alignment check.
 
 ## Task contract
 
