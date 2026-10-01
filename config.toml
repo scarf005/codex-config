@@ -24,6 +24,7 @@ trust_level = "trusted"
 gpt-6-astra = 3
 
 [tui]
+animations = false
 alternate_screen = "always"
 
 [[hooks.Stop]]
