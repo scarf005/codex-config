@@ -1,6 +1,8 @@
 # Track maintained configuration only; private state and downloaded caches stay local.
 /*
 !/.gitignore
+!/.pre-commit-config.yaml
+!/justfile
 !/AGENTS.md
 !/config.toml
 !/safe-yolo.config.toml
